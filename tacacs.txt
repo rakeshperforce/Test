@@ -1,0 +1,20 @@
+Step 1: Enabling AAA
+aaa new-model
+
+Step 2: Configuring the TACACS+ servers
+tacacs-server host 192.168.2.3 key MySecretKey2
+
+Step 3: Define the AAA method lists
+aaa authentication login default group tacacs+ local
+
+aaa authorization exec default group tacacs+ local
+
+Step 4: Enforcing AAA authentication on terminal lines
+
+line vty 0 4
+ transport input ssh
+line vty 5 15
+ transport input ssh
+
+
+******** File created on Deskop ************
